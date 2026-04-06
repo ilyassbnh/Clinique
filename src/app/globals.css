@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-sand: #fbfbe2;
+  --color-sand-alt: #f5f5dc;
+  --color-ink: #1b1d0e;
+  --color-sage: #396752;
+  --color-olive: #635f40;
+  --color-olive-light: #b2ac88;
+  
+  --font-manrope: var(--font-manrope), sans-serif;
+  --font-noto-serif: var(--font-noto-serif), serif;
+  --font-cairo: var(--font-cairo), sans-serif;
+  --font-amiri: var(--font-amiri), serif;
+  
+  --shadow-ambient: 0 24px 40px -12px rgba(27, 29, 14, 0.05);
+  
+  --background-image-cta-gradient: linear-gradient(135deg, var(--color-olive), var(--color-olive-light));
+}
+
+@layer base {
+  body {
+    @apply bg-sand text-ink;
+  }
+}
