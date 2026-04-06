@@ -5,13 +5,35 @@
     "cta": "Book Consultation"
   },
   "Services": {
+    "title": "Our Therapies",
     "deepTissue": "Deep Tissue",
+    "deepTissueDesc": "Release chronic muscle tension and promote healing with deep, focused pressure.",
     "reflexology": "Reflexology",
-    "cupping": "Cupping Therapy"
+    "reflexologyDesc": "Restore balance and energy flow through precise foot and hand reflex points.",
+    "cupping": "Cupping Therapy",
+    "cuppingDesc": "Improve circulation and relieve pain with this ancient therapeutic technique."
+  },
+  "Gallery": {
+    "title": "The Sanctuary"
+  },
+  "Contact": {
+    "title": "Begin Your Journey",
+    "subtitle": "Reach out to schedule your private consultation.",
+    "hours": "Business Hours",
+    "hoursDetail": "Mon - Sat: 9:00 AM - 8:00 PM\nSunday: Closed",
+    "location": "Location",
+    "locationDetail": "Dubai Healthcare City\nDubai, UAE",
+    "formName": "Full Name",
+    "formEmail": "Email Address",
+    "formPhone": "Phone Number",
+    "formMessage": "How can we help you?",
+    "formSubmit": "Send Request"
   },
   "Navigation": {
     "home": "Home",
+    "services": "Services",
     "gallery": "Gallery",
-    "contact": "Contact"
+    "contact": "Contact",
+    "book": "Book Consultation"
   }
 }

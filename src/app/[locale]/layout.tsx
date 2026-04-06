@@ -47,6 +47,8 @@ export async function generateMetadata({
   };
 }
 
+import Header from '@/components/navigation/Header';
+
 export default async function RootLayout({
   children,
   params
@@ -69,8 +71,9 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} dir={dir} className={fontClasses}>
-      <body className="bg-sand text-ink antialiased min-h-screen flex flex-col selection:bg-sage selection:text-white">
+      <body className="bg-sand text-ink antialiased min-h-screen flex flex-col selection:bg-sage selection:text-white pt-20">
         <NextIntlClientProvider messages={messages} locale={locale}>
+          <Header />
           {children}
         </NextIntlClientProvider>
       </body>
