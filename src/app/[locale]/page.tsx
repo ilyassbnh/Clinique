@@ -45,6 +45,18 @@ export default async function Home({
         </div>
       </HeroAnimation>
 
+      {/* About Teaser Section */}
+      <section className="bg-sand py-24 px-6 md:px-12 border-b border-olive/5">
+        <div className="container mx-auto max-w-4xl text-center">
+          <ScrollReveal>
+            <h2 className="gsap-scroll-item text-3xl md:text-5xl font-bold mb-8">{t('aboutTitle')}</h2>
+            <p className="gsap-scroll-item text-lg md:text-2xl opacity-80 leading-relaxed font-medium">
+              {t('aboutTeaser')}
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
+
       {/* Services Section */}
       <section className="bg-sand-alt py-32 px-6 md:px-12">
         <div className="container mx-auto">

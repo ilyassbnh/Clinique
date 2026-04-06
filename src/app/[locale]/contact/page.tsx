@@ -1,4 +1,5 @@
 import { getTranslations } from 'next-intl/server';
+import Image from 'next/image';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 
 export default async function ContactPage({
@@ -27,6 +28,26 @@ export default async function ContactPage({
               <div>
                 <h3 className="text-sm uppercase tracking-widest text-sage font-bold mb-2">{t('location')}</h3>
                 <p className="whitespace-pre-line text-lg opacity-90">{t('locationDetail')}</p>
+                <a 
+                  href="https://maps.app.goo.gl/mip14bXUxTnHrc6W7" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-block mt-4 text-sage font-semibold hover:text-sage/80 underline decoration-sage/30 hover:decoration-sage transition-all duration-300"
+                >
+                  {t('openMap')}
+                </a>
+              </div>
+              
+              {/* Interactive Google Map Embed */}
+              <div className="w-full h-80 md:h-96 rounded-[2rem] overflow-hidden shadow-sm border border-olive/10 mt-8 relative">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2537.892789182375!2d13.824982676822295!3d50.63851537162985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47098e8def009581%3A0xc0936d10dfab8258!2sL%C3%A1ze%C5%88sk%C3%BD%20d%C5%AFm%20Beethoven!5e0!3m2!1sen!2scz!4v1700000000000!5m2!1sen!2scz"
+                  className="absolute inset-0 w-full h-full border-0"
+                  allowFullScreen={false} 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Beethoven Clinic Location"
+                ></iframe>
               </div>
             </div>
           </div>

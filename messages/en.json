@@ -2,7 +2,9 @@
   "Index": {
     "title": "The Digital Sanctuary",
     "subtitle": "Elevate your well-being with premium Natural Health Therapies.",
-    "cta": "Book Consultation"
+    "cta": "Book Consultation",
+    "aboutTitle": "A Premium Destination",
+    "aboutTeaser": "Nestled in the heart of Europe, the Beethoven Clinic in the Czech Republic represents the pinnacle of medical tourism and luxury wellness. Discover a sanctuary where advanced therapies meet pristine tranquility."
   },
   "Services": {
     "title": "Our Therapies",
@@ -22,7 +24,8 @@
     "hours": "Business Hours",
     "hoursDetail": "Mon - Sat: 9:00 AM - 8:00 PM\nSunday: Closed",
     "location": "Location",
-    "locationDetail": "Dubai Healthcare City\nDubai, UAE",
+    "locationDetail": "Beethoven Clinic\nLázeňský sad 6/7, 415 01\nTeplice, Czech Republic",
+    "openMap": "Open in Google Maps",
     "formName": "Full Name",
     "formEmail": "Email Address",
     "formPhone": "Phone Number",
@@ -35,5 +38,8 @@
     "gallery": "Gallery",
     "contact": "Contact",
     "book": "Book Consultation"
+  },
+  "Footer": {
+    "location": "Beethoven Clinic, Czech Republic"
   }
 }
