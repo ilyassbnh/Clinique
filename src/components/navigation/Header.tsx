@@ -38,7 +38,7 @@ export default function Header() {
           
           <Link 
             href="/contact" 
-            className="bg-[image:var(--background-image-cta-gradient)] text-ink font-semibold text-sm py-2 px-6 rounded-full hover:shadow-ambient transform hover:-translate-y-0.5 transition-all duration-300 hidden sm:block"
+            className="bg-sage text-sand font-semibold text-sm py-2 px-6 rounded-md hover:bg-sage/90 hover:shadow-ambient transform hover:-translate-y-0.5 hover:scale-[1.02] transition-all duration-300 hidden sm:block"
           >
             {t('book')}
           </Link>

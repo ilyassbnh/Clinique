@@ -14,8 +14,6 @@
   --font-amiri: var(--font-amiri), serif;
   
   --shadow-ambient: 0 24px 40px -12px rgba(27, 29, 14, 0.05);
-  
-  --background-image-cta-gradient: linear-gradient(135deg, var(--color-olive), var(--color-olive-light));
 }
 
 @layer base {

@@ -49,6 +49,8 @@ export async function generateMetadata({
 
 import Header from '@/components/navigation/Header';
 
+import WhatsAppWidget from '@/components/navigation/WhatsAppWidget';
+
 export default async function RootLayout({
   children,
   params
@@ -75,6 +77,7 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages} locale={locale}>
           <Header />
           {children}
+          <WhatsAppWidget />
         </NextIntlClientProvider>
       </body>
     </html>

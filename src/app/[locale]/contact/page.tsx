@@ -72,7 +72,7 @@ export default async function ContactPage({
 
               <button 
                 type="button" 
-                className="self-start mt-4 bg-[image:var(--background-image-cta-gradient)] text-ink font-bold text-lg py-4 px-10 rounded-full hover:shadow-ambient transform hover:-translate-y-1 transition-all duration-300"
+                className="self-start mt-4 bg-sage text-sand font-semibold text-lg py-4 px-10 rounded-md hover:bg-sage/90 hover:shadow-ambient transform hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300"
               >
                 {t('formSubmit')}
               </button>
