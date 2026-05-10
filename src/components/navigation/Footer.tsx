@@ -31,7 +31,6 @@ export default function Footer() {
             src="/logo.png" 
             alt="Beethoven Clinic Logo" 
             className="h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
-            style={{ mixBlendMode: 'multiply' }}
           />
         </div>
 

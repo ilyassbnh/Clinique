@@ -60,7 +60,6 @@ export default function Header() {
               src="/logo.png" 
               alt="Beethoven Clinic Logo" 
               className="h-12 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-              style={{ mixBlendMode: 'multiply' }}
             />
           </Link>
           
