@@ -3,35 +3,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
-import { Noto_Serif, Manrope, Amiri, Cairo } from 'next/font/google';
-import '../globals.css'; // since it's one level up
-
-// English Fonts
-const notoSerif = Noto_Serif({
-  subsets: ['latin'],
-  variable: '--font-noto-serif',
-  display: 'swap',
-});
-
-const manrope = Manrope({
-  subsets: ['latin'],
-  variable: '--font-manrope',
-  display: 'swap',
-});
-
-// Arabic Fonts
-const amiri = Amiri({
-  subsets: ['arabic'],
-  weight: ['400', '700'],
-  variable: '--font-amiri',
-  display: 'swap',
-});
-
-const cairo = Cairo({
-  subsets: ['arabic'],
-  variable: '--font-cairo',
-  display: 'swap',
-});
+import '../globals.css';
 
 export async function generateMetadata({
   params
@@ -42,8 +14,9 @@ export async function generateMetadata({
   const t = await getTranslations({locale, namespace: 'Index'});
  
   return {
-    title: t('title') + ' | Premium Wellness',
-    description: t('subtitle')
+    title: 'Natural Health Therapies | Premium Mediterranean Spa',
+    description: t('subtitle'),
+    keywords: 'luxury massage, natural health, holistic wellness, deep tissue therapy, premium spa',
   };
 }
 
@@ -67,13 +40,13 @@ export default async function RootLayout({
   const messages = await getMessages();
   const dir = locale === 'ar' ? 'rtl' : 'ltr';
 
-  const fontClasses = locale === 'ar' 
-    ? `${amiri.variable} ${cairo.variable} font-cairo` 
-    : `${notoSerif.variable} ${manrope.variable} font-manrope`;
-
   return (
-    <html lang={locale} dir={dir} className={fontClasses}>
-      <body className="bg-sand text-ink antialiased min-h-screen flex flex-col selection:bg-sage selection:text-white pt-20">
+    <html lang={locale} dir={dir}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
+      <body className="bg-sand-light text-earth-dark antialiased min-h-screen flex flex-col pt-20" style={{ backgroundColor: 'var(--color-sand-light)', color: 'var(--color-earth-dark)' }}>
         <NextIntlClientProvider messages={messages} locale={locale}>
           <Header />
           {children}

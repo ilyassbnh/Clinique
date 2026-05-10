@@ -1,23 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Outfit:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme inline {
-  --color-sand: #fbfbe2;
-  --color-sand-alt: #f5f5dc;
-  --color-ink: #1b1d0e;
-  --color-sage: #396752;
-  --color-olive: #635f40;
-  --color-olive-light: #b2ac88;
+  /* ── Mediterranean Wellness Color Palette ── */
+  --color-sand-light: #faf8f5;
+  --color-sand-mid: #f0ebe1;
+  --color-sand-dark: #e3dbcc;
+  --color-beige: #d8cbb8;
   
-  --font-manrope: var(--font-manrope), sans-serif;
-  --font-noto-serif: var(--font-noto-serif), serif;
-  --font-cairo: var(--font-cairo), sans-serif;
-  --font-amiri: var(--font-amiri), serif;
+  --color-terracotta: #c86b53;
+  --color-terracotta-light: #df8873;
   
-  --shadow-ambient: 0 24px 40px -12px rgba(27, 29, 14, 0.05);
+  --color-earth-dark: #2c2825;
+  --color-earth-mid: #4a433d;
+  --color-earth-light: #736b63;
+
+  --color-white: #ffffff;
+
+  /* Legacy mappings for compat (if any components still use them temporarily) */
+  --color-obsidian: var(--color-earth-dark);
+  --color-ink: var(--color-earth-dark);
+  --color-gold: var(--color-terracotta);
+
+  /* ── Typography ── */
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Outfit', sans-serif;
+  --font-mono: 'Outfit', sans-serif; /* fallback */
+
+  /* ── Shadows ── */
+  --shadow-soft: 0 10px 40px -10px rgba(74, 67, 61, 0.08);
 }
 
+/* ── Base Reset ── */
 @layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   body {
-    @apply bg-sand text-ink;
+    background-color: var(--color-sand-light);
+    color: var(--color-earth-dark);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: rgba(200, 107, 83, 0.2);
+    color: var(--color-terracotta);
   }
 }
+
+/* ── Mediterranean Classes ── */
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  /* Ghost button / Pill button */
+  .btn-mediterranean {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 2.5rem;
+    border: 1px solid var(--color-terracotta);
+    color: var(--color-terracotta);
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: 9999px; /* Pill shape */
+    transition: all 0.4s ease;
+    background: transparent;
+  }
+
+  .btn-mediterranean:hover {
+    background: var(--color-terracotta);
+    color: var(--color-white);
+    box-shadow: 0 8px 25px rgba(200, 107, 83, 0.25);
+    transform: translateY(-2px);
+  }
+
+  /* Image Containers */
+  .img-rounded {
+    border-radius: 24px;
+    overflow: hidden;
+  }
+
+  /* Soft borders */
+  .border-soft {
+    border: 1px solid rgba(74, 67, 61, 0.1);
+  }
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-sand-light);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-sand-dark);
+  border-radius: 4px;
+}
+

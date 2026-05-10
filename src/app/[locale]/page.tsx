@@ -2,6 +2,7 @@ import { getTranslations } from 'next-intl/server';
 import HeroAnimation from '@/components/animations/HeroAnimation';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default async function Home({
   params,
@@ -12,90 +13,233 @@ export default async function Home({
   const t = await getTranslations({ locale, namespace: 'Index' });
   const ts = await getTranslations({ locale, namespace: 'Services' });
 
-  return (
-    <main className="flex-grow flex flex-col">
-      {/* Hero Section */}
-      <HeroAnimation>
-        {/* Parallax Background */}
-        <div className="hero-bg absolute inset-0 w-full h-[130%] -top-[15%]">
-          <Image
-            src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2000&auto=format&fit=crop"
-            alt="Spa Background"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-          {/* Dark Overlay */}
-          <div className="absolute inset-0 bg-ink/50 backdrop-blur-[2px]"></div>
-        </div>
+  const services = [
+    {
+      num: '01',
+      key: 'deepTissue',
+      descKey: 'deepTissueDesc',
+      img: '/service-massage.png',
+    },
+    {
+      num: '02',
+      key: 'reflexology',
+      descKey: 'reflexologyDesc',
+      img: '/botanical.png',
+    },
+    {
+      num: '03',
+      key: 'cupping',
+      descKey: 'cuppingDesc',
+      img: '/service-botanical.png',
+    },
+  ];
 
-        {/* Hero Content */}
-        <div className="relative z-10 container mx-auto px-6 md:px-12 text-center text-sand">
-          <h1 className="gsap-reveal text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight drop-shadow-lg">
-            {t('title')}
-          </h1>
-          <p className="gsap-reveal text-lg md:text-2xl mb-12 max-w-2xl mx-auto opacity-90 drop-shadow">
-            {t('subtitle')}
-          </p>
-          <div className="gsap-reveal">
-            <button className="bg-sage text-sand font-semibold text-lg md:text-xl py-4 px-10 rounded-md hover:bg-sage/90 hover:shadow-ambient transform hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300">
-              {t('cta')}
-            </button>
+  return (
+    <main className="flex-grow flex flex-col bg-[var(--color-sand-light)]">
+
+      {/* ══════════════════════════════════════════════
+          HERO — Airy, Split Layout with Soft Corners
+      ══════════════════════════════════════════════ */}
+      <HeroAnimation>
+        <section className="relative min-h-[90vh] flex flex-col md:grid md:grid-cols-2 overflow-hidden px-4 md:px-8 pt-24 pb-8 gap-8">
+          
+          {/* Left — Text Panel */}
+          <div className="flex flex-col justify-center px-4 md:px-12 z-10">
+            {/* Overline */}
+            <div className="gsap-reveal flex items-center gap-4 mb-8">
+              <div className="w-8 h-[1px] bg-[var(--color-terracotta)] opacity-60" />
+              <span className="font-body text-xs tracking-widest uppercase text-[var(--color-earth-light)]">
+                Mediterranean Wellness
+              </span>
+            </div>
+
+            {/* Main headline */}
+            <h1 className="gsap-reveal font-display font-medium text-5xl md:text-7xl lg:text-8xl leading-[1.1] text-[var(--color-earth-dark)] mb-6">
+              Invest In Your <br/>
+              <span className="italic text-[var(--color-terracotta)]">Well-Being</span>
+            </h1>
+
+            {/* Sub text */}
+            <p className="gsap-reveal font-body text-sm md:text-base leading-relaxed text-[var(--color-earth-mid)] max-w-md mb-10">
+              {t('subtitle')}
+            </p>
+
+            {/* CTA Group */}
+            <div className="gsap-reveal flex items-center gap-8">
+              <Link href="/contact">
+                <button className="btn-mediterranean">
+                  <span>{t('cta')}</span>
+                  <span className="text-lg">→</span>
+                </button>
+              </Link>
+              <Link
+                href="/services"
+                className="font-body text-xs tracking-widest uppercase text-[var(--color-earth-light)] no-underline border-b border-[var(--color-earth-light)] pb-1 transition-colors hover:text-[var(--color-terracotta)] hover:border-[var(--color-terracotta)]"
+              >
+                Explore Therapies
+              </Link>
+            </div>
           </div>
-        </div>
+
+          {/* Right — Image Panel */}
+          <div className="relative w-full h-[60vh] md:h-full img-rounded shadow-soft overflow-hidden">
+            <Image
+              src="/hero_mediterranean.png"
+              alt="Mediterranean Wellness Spa"
+              fill
+              className="object-cover object-center"
+              priority
+            />
+          </div>
+
+        </section>
       </HeroAnimation>
 
-      {/* About Teaser Section */}
-      <section className="bg-sand py-24 px-6 md:px-12 border-b border-olive/5">
-        <div className="container mx-auto max-w-4xl text-center">
+      {/* ══════════════════════════════════════════════
+          ABOUT — Manifesto Section
+      ══════════════════════════════════════════════ */}
+      <section className="py-24 md:py-32 px-6 md:px-16 bg-[var(--color-sand-mid)]">
+        <div className="max-w-6xl mx-auto">
           <ScrollReveal>
-            <h2 className="gsap-scroll-item text-3xl md:text-5xl font-bold mb-8">{t('aboutTitle')}</h2>
-            <p className="gsap-scroll-item text-lg md:text-2xl opacity-80 leading-relaxed font-medium">
-              {t('aboutTeaser')}
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="bg-sand-alt py-32 px-6 md:px-12">
-        <div className="container mx-auto">
-          <ScrollReveal>
-             {/* Note the use of background shift to visually separate, but with ultra-subtle borders to satisfy accessibility */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-              <div className="gsap-scroll-item bg-sand rounded-xl p-10 flex flex-col items-center text-center shadow-ambient border border-olive/10 group hover:-translate-y-2 transition-transform duration-500">
-                <div className="w-20 h-20 rounded-full bg-sage/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <span className="text-sage text-2xl">01</span>
+            <div className="gsap-scroll-item grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12 md:gap-24 items-start">
+              
+              {/* Left label column */}
+              <div>
+                <div className="font-body text-xs tracking-widest uppercase text-[var(--color-earth-light)] mb-4">
+                  — The Sanctuary
                 </div>
-                <h3 className="text-2xl font-bold mb-4">{ts('deepTissue')}</h3>
-                <p className="opacity-80 leading-relaxed text-sm">
-                  Release chronic muscle tension and promote healing with deep, focused pressure.
-                </p>
+                <div className="w-[1px] h-20 bg-gradient-to-b from-[var(--color-terracotta)] to-transparent opacity-40" />
               </div>
 
-              <div className="gsap-scroll-item bg-sand rounded-xl p-10 flex flex-col items-center text-center shadow-ambient border border-olive/10 group hover:-translate-y-2 transition-transform duration-500 md:translate-y-8">
-                <div className="w-20 h-20 rounded-full bg-sage/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <span className="text-sage text-2xl">02</span>
-                </div>
-                <h3 className="text-2xl font-bold mb-4">{ts('reflexology')}</h3>
-                <p className="opacity-80 leading-relaxed text-sm">
-                  Restore balance and energy flow through precise foot and hand reflex points.
-                </p>
-              </div>
-
-              <div className="gsap-scroll-item bg-sand rounded-xl p-10 flex flex-col items-center text-center shadow-ambient border border-olive/10 group hover:-translate-y-2 transition-transform duration-500">
-                <div className="w-20 h-20 rounded-full bg-sage/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <span className="text-sage text-2xl">03</span>
-                </div>
-                <h3 className="text-2xl font-bold mb-4">{ts('cupping')}</h3>
-                <p className="opacity-80 leading-relaxed text-sm">
-                  Improve circulation and relieve pain with this ancient therapeutic technique.
+              {/* Right content column */}
+              <div>
+                <h2 className="font-display font-medium text-4xl md:text-5xl text-[var(--color-earth-dark)] mb-8 leading-tight">
+                  {t('aboutTitle')}
+                </h2>
+                <p className="font-body text-base md:text-lg leading-relaxed text-[var(--color-earth-mid)] max-w-2xl">
+                  {t('aboutTeaser')}
                 </p>
               </div>
             </div>
           </ScrollReveal>
         </div>
       </section>
+
+      {/* ══════════════════════════════════════════════
+          SERVICES — Soft Split-Screen Cards
+      ══════════════════════════════════════════════ */}
+      <section className="py-24 px-4 md:px-8 bg-[var(--color-sand-light)]">
+        {/* Section header */}
+        <div className="flex items-center justify-between border-y border-soft py-6 mb-16 max-w-7xl mx-auto px-4">
+          <span className="font-body text-xs tracking-widest uppercase text-[var(--color-earth-light)]">
+            02 — Our Therapies
+          </span>
+          <span className="font-display text-lg tracking-wider text-[var(--color-earth-mid)] italic">
+            {ts('title')}
+          </span>
+        </div>
+
+        {/* Service Items */}
+        <div className="max-w-7xl mx-auto flex flex-col gap-16 md:gap-24">
+          {services.map((svc, i) => (
+            <ScrollReveal key={svc.key}>
+              <div className="gsap-scroll-item group grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                
+                {/* Image */}
+                <div className={`relative w-full h-[50vh] md:h-[60vh] img-rounded shadow-soft overflow-hidden ${i % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}>
+                  <Image
+                    src={svc.img}
+                    alt={ts(svc.key as any)}
+                    fill
+                    className="object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+                  />
+                </div>
+
+                {/* Text Panel */}
+                <div className={`flex flex-col justify-center ${i % 2 === 0 ? 'md:order-1 md:pr-12' : 'md:order-2 md:pl-12'}`}>
+                  <div className="font-body text-xs tracking-widest uppercase text-[var(--color-terracotta)] mb-6 flex items-center gap-4">
+                    <span>{svc.num}</span>
+                    <div className="flex-1 h-[1px] bg-[var(--color-terracotta)] opacity-20" />
+                  </div>
+
+                  <h3 className="font-display text-4xl md:text-5xl text-[var(--color-earth-dark)] mb-6">
+                    {ts(svc.key as any)}
+                  </h3>
+
+                  <p className="font-body text-base leading-relaxed text-[var(--color-earth-mid)] max-w-md mb-10">
+                    {ts(svc.descKey as any)}
+                  </p>
+
+                  <Link href="/services">
+                    <button className="btn-mediterranean text-xs py-3 px-8 self-start">
+                      <span>Discover</span>
+                      <span>→</span>
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════
+          STONES — Soft Rounded Visual Break
+      ══════════════════════════════════════════════ */}
+      <section className="px-4 md:px-8 py-16 bg-[var(--color-sand-light)]">
+        <div className="relative w-full h-[50vh] md:h-[70vh] img-rounded overflow-hidden shadow-soft max-w-7xl mx-auto">
+          <Image
+            src="/stones_sand.png"
+            alt="Smooth therapeutic stones on sand"
+            fill
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-[var(--color-earth-dark)]/20 mix-blend-overlay" />
+          
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
+            <div className="font-body text-xs tracking-widest uppercase text-white mb-6 drop-shadow-md">
+              — The Ritual
+            </div>
+            <div className="font-display font-medium text-4xl md:text-6xl lg:text-7xl text-white drop-shadow-lg leading-tight">
+              Restore Your <br/>
+              <span className="italic font-light">Inner Harmony</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════
+          CTA — Final Booking Section
+      ══════════════════════════════════════════════ */}
+      <section className="py-24 md:py-40 px-6 bg-[var(--color-sand-mid)] text-center">
+        <ScrollReveal>
+          <div className="gsap-scroll-item max-w-3xl mx-auto">
+            <div className="font-body text-xs tracking-widest uppercase text-[var(--color-terracotta)] mb-8 flex items-center justify-center gap-4">
+              <div className="w-8 h-[1px] bg-[var(--color-terracotta)] opacity-40" />
+              <span>Begin Your Journey</span>
+              <div className="w-8 h-[1px] bg-[var(--color-terracotta)] opacity-40" />
+            </div>
+
+            <h2 className="font-display text-5xl md:text-7xl text-[var(--color-earth-dark)] mb-8 leading-tight">
+              Reserve Your <br />
+              <span className="italic text-[var(--color-terracotta)]">Session</span>
+            </h2>
+
+            <p className="font-body text-base leading-relaxed text-[var(--color-earth-mid)] mb-12 max-w-lg mx-auto">
+              Private consultations available Mon–Sat, 9:00–20:00<br />
+              Beethoven Clinic · Teplice, Czech Republic
+            </p>
+
+            <Link href="/contact">
+              <button className="btn-mediterranean">
+                <span>Book Consultation</span>
+                <span className="text-lg">→</span>
+              </button>
+            </Link>
+          </div>
+        </ScrollReveal>
+      </section>
+
     </main>
   );
 }

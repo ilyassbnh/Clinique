@@ -14,7 +14,32 @@ export default function WhatsAppWidget() {
       href="https://wa.me/971501234567" // Placeholder number
       target="_blank"
       rel="noopener noreferrer"
-      className={`fixed ${positionClass} bottom-8 z-50 w-14 h-14 rounded-full flex items-center justify-center bg-sage text-sand shadow-[0_8px_30px_rgba(27,29,14,0.15)] hover:bg-[#2c4f3f] hover:scale-105 transition-all duration-300`}
+      style={{
+        position: 'fixed',
+        bottom: '2rem',
+        right: isRTL ? 'auto' : '2rem',
+        left: isRTL ? '2rem' : 'auto',
+        zIndex: 50,
+        width: '52px',
+        height: '52px',
+        borderRadius: '0',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#0d0d0d',
+        border: '1px solid rgba(201, 169, 110, 0.4)',
+        color: '#c9a96e',
+        boxShadow: '0 8px 40px rgba(0,0,0,0.6)',
+        transition: 'all 0.3s ease',
+      }}
+      onMouseEnter={(e) => {
+        (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(201, 169, 110, 0.9)';
+        (e.currentTarget as HTMLAnchorElement).style.boxShadow = '0 0 20px rgba(201, 169, 110, 0.15), 0 8px 40px rgba(0,0,0,0.6)';
+      }}
+      onMouseLeave={(e) => {
+        (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(201, 169, 110, 0.4)';
+        (e.currentTarget as HTMLAnchorElement).style.boxShadow = '0 8px 40px rgba(0,0,0,0.6)';
+      }}
       aria-label="Chat with us on WhatsApp"
     >
       <svg
