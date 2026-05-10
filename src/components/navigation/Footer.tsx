@@ -27,30 +27,12 @@ export default function Footer() {
       >
         {/* Logo */}
         <div>
-          <div
-            style={{
-              fontFamily: "'Barlow Condensed', sans-serif",
-              fontSize: '1rem',
-              fontWeight: 700,
-              letterSpacing: '0.35em',
-              textTransform: 'uppercase',
-              color: 'var(--color-earth-dark)',
-            }}
-          >
-            N · H · T
-          </div>
-          <div
-            style={{
-              fontFamily: "'Space Mono', monospace",
-              fontSize: '0.45rem',
-              letterSpacing: '0.25em',
-              textTransform: 'uppercase',
-              color: 'var(--color-earth-light)',
-              marginTop: '2px',
-            }}
-          >
-            Beethoven Clinic
-          </div>
+          <img 
+            src="/logo.png" 
+            alt="Beethoven Clinic Logo" 
+            className="h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+            style={{ mixBlendMode: 'multiply' }}
+          />
         </div>
 
         {/* Center */}

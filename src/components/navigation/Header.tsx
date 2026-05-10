@@ -55,32 +55,13 @@ export default function Header() {
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between h-20">
           
           {/* Logo wordmark */}
-          <Link href="/" onClick={closeMenu} className="relative z-[60] group">
-            <div
-              style={{
-                fontFamily: "'Barlow Condensed', sans-serif",
-                fontSize: '1.1rem',
-                fontWeight: 700,
-                letterSpacing: '0.35em',
-                textTransform: 'uppercase',
-                color: 'var(--color-earth-dark)',
-                transition: 'color 0.3s ease',
-              }}
-            >
-              N · H · T
-            </div>
-            <div
-              style={{
-                fontFamily: "'Space Mono', monospace",
-                fontSize: '0.45rem',
-                letterSpacing: '0.3em',
-                textTransform: 'uppercase',
-                color: 'var(--color-earth-light)',
-                marginTop: '1px',
-              }}
-            >
-              Beethoven Clinic
-            </div>
+          <Link href="/" onClick={closeMenu} className="relative z-[60] group flex items-center">
+            <img 
+              src="/logo.png" 
+              alt="Beethoven Clinic Logo" 
+              className="h-12 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              style={{ mixBlendMode: 'multiply' }}
+            />
           </Link>
           
           {/* Desktop Nav */}
