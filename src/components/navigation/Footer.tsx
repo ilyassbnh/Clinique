@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 
 export default function Footer() {
   const t = useTranslations('Footer');
@@ -9,8 +9,8 @@ export default function Footer() {
   return (
     <footer
       style={{
-        backgroundColor: '#0d0d0d',
-        borderTop: '1px solid rgba(201, 169, 110, 0.1)',
+        backgroundColor: 'var(--color-sand-dark)',
+        borderTop: '1px solid rgba(74, 67, 61, 0.1)',
         padding: '3rem clamp(2rem, 5vw, 6rem)',
       }}
     >
@@ -34,7 +34,7 @@ export default function Footer() {
               fontWeight: 700,
               letterSpacing: '0.35em',
               textTransform: 'uppercase',
-              color: '#c9a96e',
+              color: 'var(--color-earth-dark)',
             }}
           >
             N · H · T
@@ -45,7 +45,7 @@ export default function Footer() {
               fontSize: '0.45rem',
               letterSpacing: '0.25em',
               textTransform: 'uppercase',
-              color: 'rgba(201, 169, 110, 0.35)',
+              color: 'var(--color-earth-light)',
               marginTop: '2px',
             }}
           >
@@ -60,7 +60,7 @@ export default function Footer() {
             fontSize: '0.5rem',
             letterSpacing: '0.25em',
             textTransform: 'uppercase',
-            color: 'rgba(232, 228, 220, 0.2)',
+            color: 'var(--color-earth-mid)',
             textAlign: 'center',
           }}
         >
@@ -74,10 +74,29 @@ export default function Footer() {
             fontSize: '0.5rem',
             letterSpacing: '0.2em',
             textTransform: 'uppercase',
-            color: 'rgba(232, 228, 220, 0.18)',
+            color: 'var(--color-earth-mid)',
+            textAlign: 'right',
           }}
         >
-          © {new Date().getFullYear()} — All Rights Reserved
+          <div style={{ marginBottom: '0.5rem' }}>© {new Date().getFullYear()} — All Rights Reserved</div>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '0.5rem' }}>
+            <span>{t('madeBy')}</span>
+            <a 
+              href="https://github.com/ilyassbnh" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              style={{ 
+                color: 'var(--color-terracotta)', 
+                textDecoration: 'none',
+                fontWeight: 600,
+                transition: 'color 0.3s ease'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-earth-dark)'}
+              onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-terracotta)'}
+            >
+              Ilyass B.
+            </a>
+          </div>
         </div>
       </div>
     </footer>

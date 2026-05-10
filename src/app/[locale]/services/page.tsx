@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
 
 export default async function ServicesPage({
   params,
@@ -16,21 +16,21 @@ export default async function ServicesPage({
       num: '01',
       key: 'deepTissue' as const,
       descKey: 'deepTissueDesc' as const,
-      tag: 'MUSCULOSKELETAL · RECOVERY',
+      tagKey: 'tagDeepTissue' as const,
       img: '/service-massage.png',
     },
     {
       num: '02',
       key: 'reflexology' as const,
       descKey: 'reflexologyDesc' as const,
-      tag: 'ENERGY FLOW · BALANCE',
+      tagKey: 'tagReflexology' as const,
       img: '/botanical.png',
     },
     {
       num: '03',
       key: 'cupping' as const,
       descKey: 'cuppingDesc' as const,
-      tag: 'CIRCULATION · ANCIENT ART',
+      tagKey: 'tagCupping' as const,
       img: '/service-botanical.png',
     },
   ];
@@ -44,7 +44,7 @@ export default async function ServicesPage({
           <div className="flex items-center gap-4 mb-8">
             <div className="w-12 h-[1px] bg-[var(--color-terracotta)] opacity-60" />
             <span className="font-body text-xs tracking-widest uppercase text-[var(--color-earth-light)]">
-              02 — Therapies & Rituals
+              {t('overline')}
             </span>
           </div>
 
@@ -55,7 +55,7 @@ export default async function ServicesPage({
         
         {/* Background Decorative Element */}
         <div className="absolute top-1/2 right-0 -translate-y-1/2 font-display text-[clamp(8rem,18vw,22rem)] leading-none text-[var(--color-terracotta)] opacity-[0.03] pointer-events-none select-none italic">
-          Rituals
+          {t('bgText')}
         </div>
       </section>
 
@@ -94,7 +94,7 @@ export default async function ServicesPage({
 
                   {/* Tag */}
                   <div className="inline-block px-4 py-2 border border-[var(--color-terracotta)]/20 rounded-full font-body text-[10px] tracking-widest uppercase text-[var(--color-earth-light)] mb-8 self-start">
-                    {svc.tag}
+                    {t(svc.tagKey as any)}
                   </div>
 
                   <h2 className="font-display font-medium text-4xl md:text-5xl lg:text-6xl text-[var(--color-earth-dark)] mb-6 leading-tight">
@@ -107,7 +107,7 @@ export default async function ServicesPage({
 
                   <Link href="/contact" className="self-start">
                     <button className="btn-mediterranean">
-                      <span>Book This Session</span>
+                      <span>{t('bookSession')}</span>
                       <span>→</span>
                     </button>
                   </Link>
@@ -123,12 +123,12 @@ export default async function ServicesPage({
         <ScrollReveal>
           <div className="gsap-scroll-item max-w-3xl mx-auto">
             <h2 className="font-display text-5xl md:text-7xl text-[var(--color-earth-dark)] mb-10 leading-tight">
-              Ready to <br />
-              <span className="italic text-[var(--color-terracotta)]">Transform?</span>
+              {t('readyTo')} <br />
+              <span className="italic text-[var(--color-terracotta)]">{t('transform')}</span>
             </h2>
             <Link href="/contact">
               <button className="btn-mediterranean px-10 py-4 text-sm">
-                <span>Schedule a Consultation</span>
+                <span>{t('schedule')}</span>
                 <span className="text-lg">→</span>
               </button>
             </Link>

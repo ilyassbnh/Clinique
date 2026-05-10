@@ -1,6 +1,19 @@
 {
   "Index": {
-    "title": "Invest In Your Health",
+    "titleLine1": "Invest In Your",
+    "titleLine2": "Well-Being",
+    "overline": "Mediterranean Wellness",
+    "explore": "Explore Therapies",
+    "discover": "Discover",
+    "ritualOverline": "The Ritual",
+    "ritualLine1": "Restore Your",
+    "ritualLine2": "Inner Harmony",
+    "ctaOverline": "Begin Your Journey",
+    "ctaTitleLine1": "Reserve Your",
+    "ctaTitleLine2": "Session",
+    "ctaText": "Private consultations available Mon–Sat, 9:00–20:00\nBeethoven Clinic · Teplice, Czech Republic",
+    "aboutLabel": "The Sanctuary",
+    "servicesLabel": "02 — Our Therapies",
     "subtitle": "You don't have to suffer from pain. Take care of your well-being before problems arise.",
     "cta": "Book Consultation",
     "aboutTitle": "A Premium Destination",
@@ -8,6 +21,15 @@
   },
   "Services": {
     "title": "Our Therapies",
+    "overline": "02 — Therapies & Rituals",
+    "bgText": "Rituals",
+    "bookSession": "Book This Session",
+    "readyTo": "Ready to",
+    "transform": "Transform?",
+    "schedule": "Schedule a Consultation",
+    "tagDeepTissue": "MUSCULOSKELETAL · RECOVERY",
+    "tagReflexology": "ENERGY FLOW · BALANCE",
+    "tagCupping": "CIRCULATION · ANCIENT ART",
     "deepTissue": "Deep Tissue",
     "deepTissueDesc": "Release chronic muscle tension and promote healing with deep, focused pressure.",
     "reflexology": "Reflexology",
@@ -40,6 +62,7 @@
     "book": "Book Consultation"
   },
   "Footer": {
-    "location": "Beethoven Clinic, Czech Republic"
+    "location": "Beethoven Clinic, Czech Republic",
+    "madeBy": "Made by"
   }
 }

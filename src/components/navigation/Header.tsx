@@ -23,6 +23,8 @@ export default function Header() {
     return () => { document.body.style.overflow = ''; };
   }, [isMobileMenuOpen]);
 
+  // Function no longer needed since we use standard Links for localization,
+  // but keeping it just in case of any programmatic switches.
   const toggleLanguage = () => {
     const nextLocale = locale === 'en' ? 'ar' : 'en';
     router.replace(pathname, { locale: nextLocale });
@@ -44,10 +46,10 @@ export default function Header() {
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
         style={{
           background: scrolled
-            ? 'rgba(13, 13, 13, 0.92)'
-            : 'rgba(13, 13, 13, 0.0)',
+            ? 'rgba(250, 248, 245, 0.95)'
+            : 'rgba(250, 248, 245, 0.0)',
           backdropFilter: scrolled ? 'blur(20px)' : 'none',
-          borderBottom: scrolled ? '1px solid rgba(201, 169, 110, 0.12)' : '1px solid transparent',
+          borderBottom: scrolled ? '1px solid rgba(74, 67, 61, 0.1)' : '1px solid transparent',
         }}
       >
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between h-20">
@@ -61,7 +63,7 @@ export default function Header() {
                 fontWeight: 700,
                 letterSpacing: '0.35em',
                 textTransform: 'uppercase',
-                color: '#c9a96e',
+                color: 'var(--color-earth-dark)',
                 transition: 'color 0.3s ease',
               }}
             >
@@ -73,7 +75,7 @@ export default function Header() {
                 fontSize: '0.45rem',
                 letterSpacing: '0.3em',
                 textTransform: 'uppercase',
-                color: 'rgba(201, 169, 110, 0.5)',
+                color: 'var(--color-earth-light)',
                 marginTop: '1px',
               }}
             >
@@ -92,12 +94,11 @@ export default function Header() {
                   fontSize: '0.6rem',
                   letterSpacing: '0.22em',
                   textTransform: 'uppercase',
-                  color: 'rgba(232, 228, 220, 0.55)',
+                  color: 'var(--color-earth-mid)',
                   transition: 'color 0.3s ease',
                 }}
-                className="hover:!text-gold-light"
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#d4b78a')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(232, 228, 220, 0.55)')}
+                onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-terracotta)')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-earth-mid)')}
               >
                 {link.label}
               </Link>
@@ -105,27 +106,30 @@ export default function Header() {
           </nav>
 
           <div className="hidden md:flex items-center gap-6">
-            <button 
-              onClick={toggleLanguage}
+            <Link
+              href={pathname}
+              locale={locale === 'en' ? 'ar' : 'en'}
+              onClick={closeMenu}
               style={{
                 fontFamily: "'Space Mono', monospace",
                 fontSize: '0.6rem',
                 letterSpacing: '0.22em',
                 textTransform: 'uppercase',
-                color: 'rgba(232, 228, 220, 0.4)',
+                color: 'var(--color-earth-mid)',
                 background: 'none',
                 border: 'none',
                 cursor: 'pointer',
                 transition: 'color 0.3s ease',
+                textDecoration: 'none',
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = '#c9a96e')}
-              onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(232, 228, 220, 0.4)')}
+              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-terracotta)')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-earth-mid)')}
             >
               {locale === 'en' ? 'AR' : 'EN'}
-            </button>
+            </Link>
             
-            <Link href="/contact">
-              <button className="btn-elite" style={{ fontSize: '0.58rem', padding: '0.65rem 1.75rem' }}>
+            <Link href="/contact" onClick={closeMenu}>
+              <button className="btn-mediterranean" style={{ fontSize: '0.58rem', padding: '0.65rem 1.75rem' }}>
                 <span>{t('book')}</span>
                 <span style={{ fontSize: '0.7rem' }}>→</span>
               </button>
@@ -136,7 +140,7 @@ export default function Header() {
           <div className="flex md:hidden items-center gap-4 relative z-[60]">
             <button 
               style={{
-                color: isMobileMenuOpen ? '#c9a96e' : '#e8e4dc',
+                color: isMobileMenuOpen ? 'var(--color-terracotta)' : 'var(--color-earth-dark)',
                 background: 'none',
                 border: 'none',
                 cursor: 'pointer',
@@ -171,7 +175,7 @@ export default function Header() {
           position: 'fixed',
           inset: 0,
           zIndex: 40,
-          background: 'rgba(13, 13, 13, 0.98)',
+          background: 'rgba(250, 248, 245, 0.98)',
           backdropFilter: 'blur(30px)',
           display: 'flex',
           flexDirection: 'column',
@@ -185,7 +189,7 @@ export default function Header() {
         }}
       >
         {/* Thin gold rule top */}
-        <div style={{ width: '40px', height: '1px', background: 'rgba(201, 169, 110, 0.4)', marginBottom: '4rem' }} />
+        <div style={{ width: '40px', height: '1px', background: 'rgba(200, 107, 83, 0.4)', marginBottom: '4rem' }} />
 
         <nav style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2.5rem', marginBottom: '4rem' }}>
           {navLinks.map((link) => (
@@ -199,12 +203,12 @@ export default function Header() {
                 fontWeight: 700,
                 letterSpacing: '0.18em',
                 textTransform: 'uppercase',
-                color: 'rgba(232, 228, 220, 0.6)',
+                color: 'var(--color-earth-dark)',
                 transition: 'color 0.3s ease',
                 textDecoration: 'none',
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = '#c9a96e')}
-              onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(232, 228, 220, 0.6)')}
+              onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-terracotta)')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-earth-dark)')}
             >
               {link.label}
             </Link>
@@ -212,33 +216,36 @@ export default function Header() {
         </nav>
         
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
-          <button 
-            onClick={toggleLanguage}
+          <Link 
+            href={pathname}
+            locale={locale === 'en' ? 'ar' : 'en'}
+            onClick={closeMenu}
             style={{
               fontFamily: "'Space Mono', monospace",
               fontSize: '0.65rem',
               letterSpacing: '0.25em',
               textTransform: 'uppercase',
-              color: 'rgba(201, 169, 110, 0.5)',
+              color: 'var(--color-terracotta)',
               background: 'none',
-              border: '1px solid rgba(201, 169, 110, 0.2)',
+              border: '1px solid rgba(200, 107, 83, 0.2)',
               padding: '0.5rem 1.5rem',
               cursor: 'pointer',
               transition: 'all 0.3s ease',
+              textDecoration: 'none',
             }}
           >
             {locale === 'en' ? '— Arabic —' : '— English —'}
-          </button>
-          
-          <Link href="/contact" onClick={closeMenu}>
-            <button className="btn-elite">
-              <span>{t('book')}</span>
-              <span>→</span>
-            </button>
           </Link>
-        </div>
+          
+            <Link href="/contact" onClick={closeMenu}>
+              <button className="btn-mediterranean">
+                <span>{t('book')}</span>
+                <span>→</span>
+              </button>
+            </Link>
+          </div>
 
-        <div style={{ width: '40px', height: '1px', background: 'rgba(201, 169, 110, 0.4)', marginTop: '4rem' }} />
+          <div style={{ width: '40px', height: '1px', background: 'rgba(200, 107, 83, 0.4)', marginTop: '4rem' }} />
       </div>
     </>
   );

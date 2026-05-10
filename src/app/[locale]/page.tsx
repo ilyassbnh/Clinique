@@ -2,8 +2,7 @@ import { getTranslations } from 'next-intl/server';
 import HeroAnimation from '@/components/animations/HeroAnimation';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import Image from 'next/image';
-import Link from 'next/link';
-
+import { Link } from '@/i18n/routing';
 export default async function Home({
   params,
 }: {
@@ -49,14 +48,14 @@ export default async function Home({
             <div className="gsap-reveal flex items-center gap-4 mb-8">
               <div className="w-8 h-[1px] bg-[var(--color-terracotta)] opacity-60" />
               <span className="font-body text-xs tracking-widest uppercase text-[var(--color-earth-light)]">
-                Mediterranean Wellness
+                {t('overline')}
               </span>
             </div>
 
             {/* Main headline */}
             <h1 className="gsap-reveal font-display font-medium text-5xl md:text-7xl lg:text-8xl leading-[1.1] text-[var(--color-earth-dark)] mb-6">
-              Invest In Your <br/>
-              <span className="italic text-[var(--color-terracotta)]">Well-Being</span>
+              {t('titleLine1')} <br/>
+              <span className="italic text-[var(--color-terracotta)]">{t('titleLine2')}</span>
             </h1>
 
             {/* Sub text */}
@@ -76,7 +75,7 @@ export default async function Home({
                 href="/services"
                 className="font-body text-xs tracking-widest uppercase text-[var(--color-earth-light)] no-underline border-b border-[var(--color-earth-light)] pb-1 transition-colors hover:text-[var(--color-terracotta)] hover:border-[var(--color-terracotta)]"
               >
-                Explore Therapies
+                {t('explore')}
               </Link>
             </div>
           </div>
@@ -106,7 +105,7 @@ export default async function Home({
               {/* Left label column */}
               <div>
                 <div className="font-body text-xs tracking-widest uppercase text-[var(--color-earth-light)] mb-4">
-                  — The Sanctuary
+                  — {t('aboutLabel')}
                 </div>
                 <div className="w-[1px] h-20 bg-gradient-to-b from-[var(--color-terracotta)] to-transparent opacity-40" />
               </div>
@@ -132,7 +131,7 @@ export default async function Home({
         {/* Section header */}
         <div className="flex items-center justify-between border-y border-soft py-6 mb-16 max-w-7xl mx-auto px-4">
           <span className="font-body text-xs tracking-widest uppercase text-[var(--color-earth-light)]">
-            02 — Our Therapies
+            {t('servicesLabel')}
           </span>
           <span className="font-display text-lg tracking-wider text-[var(--color-earth-mid)] italic">
             {ts('title')}
@@ -172,7 +171,7 @@ export default async function Home({
 
                   <Link href="/services">
                     <button className="btn-mediterranean text-xs py-3 px-8 self-start">
-                      <span>Discover</span>
+                      <span>{t('discover')}</span>
                       <span>→</span>
                     </button>
                   </Link>
@@ -198,11 +197,11 @@ export default async function Home({
           
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8">
             <div className="font-body text-xs tracking-widest uppercase text-white mb-6 drop-shadow-md">
-              — The Ritual
+              — {t('ritualOverline')}
             </div>
             <div className="font-display font-medium text-4xl md:text-6xl lg:text-7xl text-white drop-shadow-lg leading-tight">
-              Restore Your <br/>
-              <span className="italic font-light">Inner Harmony</span>
+              {t('ritualLine1')} <br/>
+              <span className="italic font-light">{t('ritualLine2')}</span>
             </div>
           </div>
         </div>
@@ -216,23 +215,22 @@ export default async function Home({
           <div className="gsap-scroll-item max-w-3xl mx-auto">
             <div className="font-body text-xs tracking-widest uppercase text-[var(--color-terracotta)] mb-8 flex items-center justify-center gap-4">
               <div className="w-8 h-[1px] bg-[var(--color-terracotta)] opacity-40" />
-              <span>Begin Your Journey</span>
+              <span>{t('ctaOverline')}</span>
               <div className="w-8 h-[1px] bg-[var(--color-terracotta)] opacity-40" />
             </div>
 
             <h2 className="font-display text-5xl md:text-7xl text-[var(--color-earth-dark)] mb-8 leading-tight">
-              Reserve Your <br />
-              <span className="italic text-[var(--color-terracotta)]">Session</span>
+              {t('ctaTitleLine1')} <br />
+              <span className="italic text-[var(--color-terracotta)]">{t('ctaTitleLine2')}</span>
             </h2>
 
-            <p className="font-body text-base leading-relaxed text-[var(--color-earth-mid)] mb-12 max-w-lg mx-auto">
-              Private consultations available Mon–Sat, 9:00–20:00<br />
-              Beethoven Clinic · Teplice, Czech Republic
+            <p className="font-body text-base leading-relaxed text-[var(--color-earth-mid)] mb-12 max-w-lg mx-auto whitespace-pre-line">
+              {t('ctaText')}
             </p>
 
             <Link href="/contact">
               <button className="btn-mediterranean">
-                <span>Book Consultation</span>
+                <span>{t('cta')}</span>
                 <span className="text-lg">→</span>
               </button>
             </Link>
